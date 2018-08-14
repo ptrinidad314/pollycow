@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Polling App - Home";
+}
+
+
+<div class="indexWrapper">
+    <img src="~/img/LogoMakr_8Xfk7m.png" />
+    <p>
+        Question everything.  Reveal the truth.
+    </p>
+    <a href="#section-nav">Start</a>
+</div>
+
+<div class="indexWrapper-2">
+    @await Html.PartialAsync("_navigation")
+
+    <div id="leftColIdx">
+        <img class="imageIdx" src="~/img/pexels-photo-933964.jpeg" />
+        <div class="idxText-Block">
+            <h3>Have a beef?  Get moo-ving and settle it with a Poll!</h3>
+        </div>
+    </div>
+
+<div id="rightColIdx">
+
+    <p>
+       Got Questions?  Get on the horn and ask your friends and colleagues!  Milk them for answers with our app.
+        <br />
+        With <span>Polly Cow</span> you can create polls that will tabulate votes and find the answers to any questions you have, 
+        no matter how udderly mad!
+    </p>
+
+    <a class="createPoll" href="/home/create">Create Poll</a>
+    
+
+    @if (!User.Identity.IsAuthenticated)
+    {   
+        <a class="signUpLink" href="/account/createaccountrequest">Sign Up</a>
+    }
+    else
+    {
+        <a class="viewMyPolls" href="/home/userpolls">View my Polls</a>
+    }
+
+
+</div>
+</div>
+

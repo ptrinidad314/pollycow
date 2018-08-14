@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "View User Polls";
+}
+
+@model IEnumerable<PollingApp.Entities.Poll>
+
+@await Html.PartialAsync("_navigation")
+
+<div class="userPollsImageContainer">
+    <h1>My Polls</h1>
+    <img src="~/img/viewPolls.png" />
+</div>
+
+<div class="tableContainer">
+    <table>
+
+        @foreach (var poll in Model)
+        {
+            <tr>
+                <td class="pollTitle">@poll.Name</td>
+                <td class="pollVoteLink"><a href="/home/vote/@poll.Id">Vote</a></td>
+                <td class="pollResultsLink"><a href="/home/pollresults/@poll.Id">Results</a></td>
+                <td class="pollDelete">
+                    <form method="post" action="/home/DeletePoll">
+                        <input type="hidden" value="@poll.Id" name="pollId" />
+                        <button type="submit">Delete</button>
+                        @Html.AntiForgeryToken()
+                    </form>
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+</div>
+
+

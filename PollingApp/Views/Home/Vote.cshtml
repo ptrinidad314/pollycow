@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Vote";
+}
+
+@model PollingApp.Entities.Poll
+
+@await Html.PartialAsync("_navigation")
+
+<div class="voteWrapper">
+    
+    <div class="voteLeftCol">
+        <div class="pollTitle"><a href="/home/pollresults/@Model.Id">@Model.Name</a></div>
+        <p>By: @Model.UserName</p>
+        <a id="voteJump" href="#addOption">*Don't see anything you like?  Add an option</a>
+
+        <form action="/home/AddVote" method="post">
+
+            @foreach (var o in Model.Options)
+            {
+
+
+                <div class="radioVote">
+                    <input type="radio" name="optionId" value="@o.Id" id="@o.Id" checked />
+                    <label for="@o.Id">@o.Name</label>
+                </div>
+
+            }
+
+            <button id="voteAddVote">Vote</button>
+
+            @Html.AntiForgeryToken()
+        </form>
+    </div>
+
+
+    <div class="voteRightCol">
+        <div class="addOptionFrm">
+            <h5>Add an Option</h5>
+            <form id="formAddOption" action="/home/CreateOption" method="post">
+                <input type="hidden" name="pollId" value="@Model.Id" />
+                <input id="optionText" type="text" name="optionTitle" value="" placeholder="Enter option title..." required />
+                
+                <button id="voteAddOpt">Add</button>
+                <a name="addOption"></a>
+                @Html.AntiForgeryToken()
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+Name: John Doe
+User Name: jDoe@trinidadplive.onmicrosoft.com
+Password: Rula6635
+New Password: worldBeater666
+
+
+-----
+https://localhost:44351/signin-oidc
+
+InvalidOperationException: The MetadataAddress or Authority must use HTTPS unless disabled for development by setting RequireHttpsMetadata=false.
+
+5999b0dd-1596-459b-bbea-dbdfc8851858
+
+Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+
+https://localhost:44351/home/vote/1008 
+
+https://localhost:44351/home/vote/2008
+
+logomakr.com/8Xfk7m
+
+ /*
+            var username = "";
+            var name = "";
+
+            if (User.Identity.IsAuthenticated)
+            {
+                name = User.Claims.Where(p => p.Type == "name").FirstOrDefault().Value;
+                username = User.Claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name").FirstOrDefault().Value;
+            }
+            */
+            
+data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true
+
+server=mi3-wsq3.a2hosting.com;data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true
+hostname=mi3-wsq3.a2hosting.com;data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true
+
+
+//===================================================================
+
+5/24/18
+---connection string update
+
+"DefaultConnection": "Data Source=mi3-wsq3.a2hosting.com;Initial Catalog=philiptr_pc;User Id=database user created in the control panel;Password=password of the database user;"
+
+"DefaultConnection": "Data Source=mi3-wsq3.a2hosting.com;Initial Catalog=philiptr_pc;User Id=dbAdmin;Password=Npdd44$5;"
+
+---azure ad update for Polling App
+
+-Home page URL
+https://localhost:44351/
+https://pollycow.philiptrinidad.com/
+
+-Reply URLs
+https://localhost:44351/auth/signin-callback
+https://pollycow.philiptrinidad.com/auth/signin-callback
+
+
+

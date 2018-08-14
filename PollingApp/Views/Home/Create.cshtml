@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Create Poll";
+}
+
+@await Html.PartialAsync("_navigation")
+
+<h1>Create a Poll</h1>
+
+
+<div id="createPollWrapper">
+    <form action="/home/create" method="post">
+
+        <input id="createPollTitle" type="text" name="title" value="" placeholder="Enter Title..." required/>
+        <ul id="createOptionUl">
+            <li>
+                <input id="opt1" type="text" name="options" value="" placeholder="Enter first option..." required/>
+            </li>
+            <li>
+                <input id="opt2" type="text" name="options" value="" placeholder="Enter second option..." required/>
+            </li>
+        </ul>
+        <button id="createAddOption" type="button">Add Option</button>
+        <button id="createPollbtnSubmit" type="submit">Submit New poll</button>
+        @Html.AntiForgeryToken()
+    </form>
+</div>

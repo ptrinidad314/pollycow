@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "PollingApp - View Account Requests";
+}
+
+@using PollingApp.Entities
+@model IEnumerable<PollingApp.Entities.AccountRequest>
+
+@await  Html.PartialAsync("_navigation")
+
+<h1>Account Requests</h1>
+
+<table class="accountRequestTable">
+
+    <tr>
+        <th>Email</th>
+        <th>User Name</th>
+        <th>Complete</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    @foreach (var ar in Model)
+    {
+        <tr>
+            <td>@ar.Email</td>
+            <td>@ar.UserName</td>
+            <td>@ar.Complete</td>
+            <td>
+                <form action="/account/updateAccountRequest" method="get">
+                    <input type="hidden" name="accountRequestId" value="@ar.Id" />
+                    <button class="arUpdate" type="submit">Update</button>
+                    @Html.AntiForgeryToken()
+                </form>
+            </td>
+            <td>
+                <form action="/account/deleteAccountRequest" method="post">
+                    <input type="hidden" value="@ar.Id" name="accountRequestId" />
+                    <button class="arDelete" type="submit">Delete</button>
+                    @Html.AntiForgeryToken() 
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<nav id="section-nav">
+    <ul>
+        @if (User.Identity.IsAuthenticated)
+    {
+        <li class="logo">
+            <a href="/home/index">
+                <img src="~/img/LogoMakr_9KoPBR.png" />
+            </a>
+        </li>
+        <li class="signOut floatRight">
+            <form action="/Auth/signout" method="post">
+                <button type="submit">Sign Out</button>
+            </form>
+        </li>
+        <li class="userGreeting floatRight"><p>Hi @User.Claims.Where(p => p.Type == "name").FirstOrDefault().Value</p></li>
+}
+else
+{
+    <li>
+        <a href="/home/index">
+            <img src="~/img/LogoMakr_9KoPBR.png" />
+        </a>
+    </li>
+    <li class="floatRight signIn">
+        <a class="signInLink" href="/Auth/signin">Sign In</a>
+    </li>
+}
+    </ul>
+</nav>
+
